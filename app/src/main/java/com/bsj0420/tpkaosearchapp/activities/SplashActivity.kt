@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
 //            }
 //
 //        } ,1500) //메인 루퍼를 이용해 UI 핸들러 생성
-        // runable : 해야할 작업
+        // runable : 해야할 작
         // delay : 딜레이 할 시간
 
         //위 코드 람다로 줄이기
