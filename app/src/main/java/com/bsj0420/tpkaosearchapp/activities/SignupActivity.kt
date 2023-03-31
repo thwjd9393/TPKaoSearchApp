@@ -48,7 +48,7 @@ class SignupActivity : AppCompatActivity() {
         }
         
         //파이어스토어 디비에 파이어스토어 얻어오기
-        val db = FirebaseFirestore.getInstance()
+        val db = FirebaseFirestore.getInstance() // 이 한줄이면 연동 끝~!
         
         //저장할 데이터 이메일 비밀번호 값 hashMap으로 저장
         val user:MutableMap<String, String> = mutableMapOf()
