@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -30,15 +31,38 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation platform('com.google.firebase:firebase-bom:31.3.0')
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //원하는 제품 sdk 추가
+    implementation 'com.google.firebase:firebase-firestore-ktx' //Cloud Firestore DB for kotlin
+
+    //카카오 로그인 라이브러리
+    implementation "com.kakao.sdk:v2-user:2.13.0" // 카카오 로그인
+
+    //구글 로그인 SDK
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
+
+    //네이버 로그인 SDK
+    implementation 'com.navercorp.nid:oauth:5.4.0' // jdk 11
+
+    //레트로핏 라이브러리
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
 }

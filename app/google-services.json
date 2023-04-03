@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1060266859776",
+    "project_id": "thkaoplacesearchsj2023",
+    "storage_bucket": "thkaoplacesearchsj2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060266859776:android:bf183d72ff4aeaba3427e5",
+        "android_client_info": {
+          "package_name": "com.bsj0420.tpkaosearchapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060266859776-2u8qctbrohba24t9c8lea78uni0ompo2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bsj0420.tpkaosearchapp",
+            "certificate_hash": "950c4f2eba385127ce2e273f6830041d19a1a2ed"
+          }
+        },
+        {
+          "client_id": "1060266859776-8sftn8p1orqjersdffk5ui931tbg8ldb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyDJhReDIv_O5lFH5ipzxsV4dr3bXJXoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060266859776-7sdp2ja1cqjdv4nveu41jo097bomeq53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
