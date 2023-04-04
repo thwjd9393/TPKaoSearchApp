@@ -7,7 +7,7 @@
     tools:context=".activities.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toobar"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
@@ -32,5 +32,46 @@
             android:layout_height="match_parent"/>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <HorizontalScrollView
+        android:id="@+id/scrollview"
+        android:scrollbars="none"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/choice_list" android:id="@+id/layout_choice"/>
+
+    </HorizontalScrollView>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_below="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="#FF9800"
+        app:tabSelectedTextColor="#FF9800"
+        app:tabTextColor="#FF9800"
+        >
+
+        <com.google.android.material.tabs.TabItem
+            android:text="LIST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:text="MAP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <FrameLayout
+        android:id="@+id/container_fragment"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 </RelativeLayout>
