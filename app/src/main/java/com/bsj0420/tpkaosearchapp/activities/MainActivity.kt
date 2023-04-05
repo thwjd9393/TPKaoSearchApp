@@ -19,6 +19,9 @@ import com.bsj0420.tpkaosearchapp.R
 import com.bsj0420.tpkaosearchapp.databinding.ActivityMainBinding
 import com.bsj0420.tpkaosearchapp.fragments.PlaceListFragment
 import com.bsj0420.tpkaosearchapp.fragments.PlaceMapFragment
+import com.bsj0420.tpkaosearchapp.model.KakaoSerchPlaceResponce
+import com.bsj0420.tpkaosearchapp.network.RetrofitApiService
+import com.bsj0420.tpkaosearchapp.network.RetrofitHelper
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -27,6 +30,10 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +49,10 @@ class MainActivity : AppCompatActivity() {
     //구글의 Fused Location API 사용 : play-service-location
     //FusedLocationProviderClient는 컨텍스트가 필요함 컨텍스트는 멤버변수로 못쓰기 떄문
     val providerClient : FusedLocationProviderClient by lazy { LocationServices.getFusedLocationProviderClient(this) }
+
+    //검색결과 응답객체 참조변수
+    var serchPlaceResponce : KakaoSerchPlaceResponce? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +80,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
-
 
             //검색기능 만들기
 
@@ -163,7 +173,29 @@ class MainActivity : AppCompatActivity() {
 
     //카카오 장소 검색 API를 파싱하는 작업 메소드
     private fun searchPlace() {
-        Toast.makeText(this, "$searchQuery - ${myLocation?.latitude}, ${myLocation?.longitude}", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "$searchQuery - ${myLocation?.latitude}, ${myLocation?.longitude}", Toast.LENGTH_SHORT).show()
+
+        //카카오 keword plase serch api 사용 REST API 작업 - Retrofit 사용
+        //1. 클래스로 만들어 놓은 RetrofitHelper를 사용
+         val retrofit : Retrofit = RetrofitHelper.getRetrofitInstance("https://dapi.kakao.com")
+        //2. 서비스 객체
+        val retrofitApiService =retrofit.create(RetrofitApiService::class.java)
+        retrofitApiService.searchPlace(searchQuery, myLocation?.latitude.toString(), myLocation?.longitude.toString())
+            .enqueue(object : Callback<KakaoSerchPlaceResponce>{
+                override fun onResponse(
+                    call: Call<KakaoSerchPlaceResponce>,
+                    response: Response<KakaoSerchPlaceResponce>
+                ) {
+                    serchPlaceResponce = response.body()
+
+                    Toast.makeText(this@MainActivity, "${serchPlaceResponce?.meta?.total_count}", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onFailure(call: Call<KakaoSerchPlaceResponce>, t: Throwable) {
+                    Toast.makeText(this@MainActivity, "서버에 문젝 있습니다", Toast.LENGTH_SHORT).show()
+                }
+            })
+
     }
 
 
