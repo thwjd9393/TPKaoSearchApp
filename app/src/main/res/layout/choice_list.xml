@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/choice_wc"
+        android:src="@drawable/baseline_wc_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_choice_select"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <ImageView
+        android:id="@+id/choice_movie"
+        android:src="@drawable/baseline_movie_filter_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_choice"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <ImageView
+        android:id="@+id/choice_gas"
+        android:src="@drawable/baseline_local_gas_station_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_choice"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <ImageView
+        android:id="@+id/choice_ev"
+        android:src="@drawable/baseline_ev_station_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_choice"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <ImageView
+        android:id="@+id/choice_pharmacy"
+        android:src="@drawable/baseline_local_pharmacy_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_choice"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <ImageView
+        android:id="@+id/choice_park"
+        android:src="@drawable/baseline_park_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_choice"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <ImageView
+        android:id="@+id/choice_food"
+        android:src="@drawable/baseline_food_bank_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_choice"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <ImageView
+        android:id="@+id/choice_coffee"
+        android:src="@drawable/baseline_coffee_24"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_choice"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+</LinearLayout>
