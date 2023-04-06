@@ -116,6 +116,9 @@ class MainActivity : AppCompatActivity() {
             requestMyLocation()
         }
 
+        //내 위치 재조정
+        binding.ivMyLocation.setOnClickListener { requestMyLocation() }
+
 
     }//onCreate
     
@@ -188,11 +191,17 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     serchPlaceResponce = response.body()
 
-                    Toast.makeText(this@MainActivity, "${serchPlaceResponce?.meta?.total_count}", Toast.LENGTH_SHORT).show()
+                    //무조건 검색이 완료가 되면 listFragment 보여주도록 한다 목록이 먼저 나오도록
+                    supportFragmentManager.beginTransaction().replace(R.id.container_fragment, PlaceListFragment()).commit()
+                    //갱신의 의미가 없음 아예 뜯어내고 다시 만드는 거라서
+
+                    //현재 탭버튼과 프래그먼트가 연결이 안되어 있어서 탭을 변경 해주기
+                    binding.tabLayout.getTabAt(0)?.select()
+
                 }
 
                 override fun onFailure(call: Call<KakaoSerchPlaceResponce>, t: Throwable) {
-                    Toast.makeText(this@MainActivity, "서버에 문젝 있습니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "서버에 문제가 있습니다", Toast.LENGTH_SHORT).show()
                 }
             })
 
