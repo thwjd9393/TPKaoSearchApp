@@ -265,8 +265,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.aaa -> Toast.makeText(this, "aaaa", Toast.LENGTH_SHORT).show()
-            R.id.bbb -> Toast.makeText(this, "bbbb", Toast.LENGTH_SHORT).show()
+            R.id.aaa -> Toast.makeText(this, "검색 장소를 입력하세요", Toast.LENGTH_SHORT).show()
+            R.id.bbb -> Toast.makeText(this, "Retrofit. Glide. kakaoAPI, NaverAPI, GoogleAPI, GSON", Toast.LENGTH_SHORT).show()
         }
 
         return super.onOptionsItemSelected(item)
